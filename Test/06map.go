@@ -1,4 +1,4 @@
-package go_pratice
+package Test
 
 import (
 	"fmt"
