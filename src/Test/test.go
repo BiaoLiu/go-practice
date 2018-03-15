@@ -10,7 +10,6 @@ const (
 
 func main() {
 	fmt.Println(a1, b2, c3)
-
 }
 
 
