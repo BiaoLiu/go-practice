@@ -1,4 +1,4 @@
-package main
+package structtest
 
 //工厂模式
 type foo struct {

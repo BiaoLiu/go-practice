@@ -1,4 +1,4 @@
-package structtest
+package main
 
 import "fmt"
 
