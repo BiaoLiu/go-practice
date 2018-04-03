@@ -1,4 +1,4 @@
-package interfacetest
+package main
 
 type Itest interface {
 	Area() float32
