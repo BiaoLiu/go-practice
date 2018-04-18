@@ -6,26 +6,26 @@ import (
 
 type List []int
 
-func (l List) Len() int {
-	return len(l)
+type Appender interface {
+	Append(int)
 }
 
-func (l *List) Append(val int) {
+type Lener interface {
+	Len() int
+}
+
+func (l *List) Append(val int) { //receiver为指针
 	*l = append(*l, val)
 }
 
-type Appender interface {
-	Append(int)
+func (l List) Len() int { //receiver为struct
+	return len(l)
 }
 
 func CountInto(a Appender, start, end int) {
 	for i := start; i <= end; i++ {
 		a.Append(i)
 	}
-}
-
-type Lener interface {
-	Len() int
 }
 
 func LongEnough(l Lener) bool {
