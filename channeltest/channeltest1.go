@@ -23,7 +23,7 @@ func main() {
 		//}
 
 		c <- 10
-		//close(c)  //关闭channel
+		close(c)  //关闭channel
 	}()
 
 	//i2 := <-c
