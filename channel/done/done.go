@@ -30,10 +30,15 @@ func chanDemo() {
 
 	for i, worker := range workers {
 		worker.in <- 'a' + i
-		<-worker.done
+		//<-worker.done
 	}
 	for i, worker := range workers {
 		worker.in <- 'A' + i
+		//<-worker.done
+	}
+
+	for _, worker := range workers {
+		<-worker.done
 		<-worker.done
 	}
 }
