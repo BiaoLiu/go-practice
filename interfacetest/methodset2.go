@@ -37,6 +37,7 @@ func main() {
 	m1(m)
 	m2(&m)
 
+
 	var mm *man = new(man)
 	mm.name = "lbi2"
 	mm.carName = "toyota2"

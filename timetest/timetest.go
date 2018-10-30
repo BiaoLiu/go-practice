@@ -1,11 +1,11 @@
-package timetest
+package main
 
 import (
 	"time"
 	"fmt"
 )
 
-func Ttest1() {
+func main() {
 	t := time.Now()
 	fmt.Println(t)
 	fmt.Println(t.Format("2006-01-02 15:04:05"))
@@ -17,6 +17,7 @@ func Ttest1() {
 	fmt.Println(t1, err)
 
 	t10 := time.Now().Unix()
+	fmt.Println(t10)
 	t11 := time.Unix(t10, 0)
 	fmt.Println(t10, t11)
 }
