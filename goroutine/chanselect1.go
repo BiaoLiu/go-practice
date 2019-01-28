@@ -30,4 +30,4 @@ func getChan(i int) chan int {
 	return channels[i]
 }
 
-//执行顺序，从左到右，从上到下
+// 首先，case后的表达式会先求值， 执行顺序，从左到右，从上到下

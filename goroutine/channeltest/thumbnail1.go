@@ -3,7 +3,10 @@ package main
 import (
 	"errors"
 	"fmt"
+	"gopl.io/ch8/thumbnail"
 	"log"
+	"os"
+	"sync"
 )
 
 func ImageFile(filename string) (string, error) {
@@ -104,9 +107,41 @@ func makeThumbnails5(filenames []string) ([]string, error) {
 	return newFilenames, nil
 }
 
+// makeThumbnails6 makes thumbnails for each file received from the channel.
+// It returns the number of bytes occupied by the files it creates.
+func makeThumbnails6(filenames <-chan string) int64 {
+	sizes := make(chan int64)
+	var wg sync.WaitGroup // number of working goroutines
+
+	for f := range filenames {
+		wg.Add(1)
+		// worker
+		go func(f string) {
+			defer wg.Done()
+			thumb, err := thumbnail.ImageFile(f)
+			if err != nil {
+				log.Println(err)
+				return
+			}
+			info, _ := os.Stat(thumb) // OK to ignore error
+			sizes <- info.Size()
+		}(f)
+	}
+	// closer
+	go func() {
+		wg.Wait()
+		close(sizes)
+	}()
+	var total int64
+	for size := range sizes {
+		total += size
+	}
+	return total
+}
+
 func main() {
 	filenames := []string{"1.txt", "2.txt", "3.txt"}
-	_,err := makeThumbnails5(filenames)
+	_, err := makeThumbnails5(filenames)
 
 	fmt.Println(err)
 }

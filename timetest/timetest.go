@@ -20,6 +20,8 @@ func main() {
 	fmt.Println(t10)
 	t11 := time.Unix(t10, 0)
 	fmt.Println(t10, t11)
+
+	fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
 }
 
 func Ttest2() {
