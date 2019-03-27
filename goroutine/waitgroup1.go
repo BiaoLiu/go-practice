@@ -19,13 +19,13 @@ func g3() {
 	syncChan <- 3
 }
 
-func main() {
-	go g1()
-	go g2()
-	go g3()
+	func main() {
+		go g1()
+		go g2()
+		go g3()
 
-	for i := 0; i < 3; i++ {
-		<-syncChan
-	}
+		for i := 0; i < 3; i++ {
+			<-syncChan
+		}
 
 }

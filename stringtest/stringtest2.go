@@ -1,4 +1,4 @@
-package stringtest
+package main
 
 import "fmt"
 

@@ -1,4 +1,4 @@
-package stringtest
+package main
 
 import (
 	"strings"
@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func Stest1() {
+func main() {
 	index := strings.Index("abc", "d")
 	fmt.Println(index)
 
@@ -27,4 +27,7 @@ func Stest1() {
 	fmt.Println(str3)
 
 	fmt.Println(strconv.Itoa(100))
+
+	t3:=fmt.Sprintf("test1:%s is %s","t1","t2")
+	fmt.Println(t3)
 }
