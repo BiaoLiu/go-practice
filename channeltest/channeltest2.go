@@ -1,16 +1,5 @@
 package main
 
-import "fmt"
-
-func main()  {
-	c:=make(chan  int)
-
-	go func(){
-		c<-10
-	}()
-
-	d:=<-c
-
-	fmt.Println(d)
+func main() {
 
 }
